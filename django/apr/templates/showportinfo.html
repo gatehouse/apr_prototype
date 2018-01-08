@@ -1,0 +1,20 @@
+{% load rest_framework %}
+
+<html><body>
+
+<h1>Port Information</h1>
+
+{{ portinfo }}
+
+<h1>Required Port Information</h1>
+
+<form action="{% url 'submit-portinfo' %}?port={{ port }}" method="POST">
+  {% csrf_token %}
+  <input type="hidden" name="port_locode" value="{{ port }}" />
+  <table>
+    {% for re in requestelements %}
+    <tr><td>{{re.name}}:&nbsp;</td><td><input name="{{re.name}}" type="text"></input><td></tr>
+    {% endfor %}
+  </table>
+  <input type="submit" value="Submit Information to Port">
+</form>

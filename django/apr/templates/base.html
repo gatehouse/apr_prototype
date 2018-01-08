@@ -1,0 +1,12 @@
+{% load static %}
+<html>
+  <head>
+    <link rel="stylesheet" href="{% static "/css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "/css/bootstrap-tweaks.css" %}">
+  </head>
+  <body>
+    <div>
+      {% block content %}{% endblock %}
+    </div>
+  </body>
+</html>
